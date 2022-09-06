@@ -9,17 +9,17 @@
       </div>
     </div>
   </ng-container>
-  <!--End logo - time -->
+  <!-- END logo - time -->
 
   <!-- HERO -->
   <ng-container>
     <div class="hero" *ngIf="!isSilver else silver1">
       <div class="hero__tr">
         <img src="../../../assets/LOGO/oz.png" alt="" />
-        <div><span>XAUUSD/</span><span>ออนซ์</span></div>
+        <div><span>XAUUSD/</span><span>Oz</span></div>
           <span *ngIf="gold">{{ gold.bid }}</span>
           <span *ngIf="gold">{{ gold.ask }}</span>
-          <span>USD</span>
+          <span class="hero__unit">USD</span>
       </div>
       <div class="hero__tr">
         <img src="../../../assets/LOGO/bath.png" alt="" />
@@ -28,19 +28,19 @@
         <span *ngIf="gold">{{ gold.bidAs | number }}</span> 
         <!-- ราคาสมาคม ขายออก -->
         <span class="hero__color" *ngIf="gold">{{ gold.askAs | number }}</span>
-        <span>บาท</span>
+        <span class="hero__unit">บาท</span>
       </div>
     </div>
 
     <!-- TEMPLATE -->
     <ng-template #silver1>
-      <div class="hero hero--auto-height">
+      <div class="hero">
         <div class="hero__tr">
           <img src="../../../assets/LOGO/oz.png" alt="" />
           <span>Silver USD/ออนซ์</span>
           <span>{{ silver?.bid }}</span>
           <span>{{ silver?.ask }}</span>
-          <span>USD</span>
+          <span class="hero__unit">USD</span>
         </div>
       </div>
     </ng-template>
@@ -64,7 +64,10 @@
             </td>
             <td colspan="2" class="table__td">
               <div *ngIf="!gold"><span>0</span> <span>0</span></div>
-              <div *ngIf="gold"><span>{{ gold.bidKg | number }}</span> <span>{{ gold.bidBg | number }}</span></div>
+              <div *ngIf="gold">
+                <span>{{ gold.bidKg | number }}</span>
+                 <span>{{ gold.bidBg | number }}</span>
+              </div>
             </td>
             <td></td>
             <td class="table__td">บาท</td>
@@ -76,7 +79,10 @@
             </td>
             <td colspan="2" class="table__td">
               <div *ngIf="!gold"><span>0</span> <span>0</span></div>
-              <div *ngIf="gold"><span>{{ gold.askKg | number }}</span> <span>{{ gold.askBg | number }}</span></div>
+              <div *ngIf="gold">
+                <span>{{ gold.askKg | number }}</span>
+                 <span>{{ gold.askBg | number }}</span>
+              </div>
             </td>
             <td></td>
             <td class="table__td">บาท</td>
@@ -100,7 +106,9 @@
                 <span style="color: #fff;">Silver 99.99%/กิโลกรัม</span>
               </td>
               <td colspan="2" class="table__td">
-                <div><span style="color:#508FE8">{{ silver?.bidKg| number }}</span> <span style="color: #2D71CC;">{{ silver?.askKg | number }}</span></div>
+                <div><span style="color:#508FE8">{{ silver?.bidKg| number }}</span> 
+                <span style="color: #2D71CC;">{{ silver?.askKg | number }}</span>
+              </div>
               </td>
               <td></td>
               <td class="table__td">บาท</td>
@@ -111,7 +119,10 @@
                 <span style="color: #BBBBBB;">Silver 99.99/บาท</span>
               </td>
               <td colspan="2" class="table__td">
-                <div><span style="color:#508FE8">{{ silver?.bidBg | number }}</span> <span style="color: #2D71CC;">{{ silver?.askBg | number }}</span></div>
+                <div>
+                  <span style="color:#508FE8">{{ silver?.bidBg | number }}</span> 
+                  <span style="color: #2D71CC;">{{ silver?.askBg | number }}</span>
+                </div>
               </td>
               <td></td>
               <td class="table__td">บาท</td>
@@ -121,5 +132,6 @@
       </div>
     </ng-template>
   </ng-container>
+    <!-- EDN Card -->
 </div>
 

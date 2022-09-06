@@ -1,0 +1,209 @@
+// variable
+$haeder-height: 140px;
+$hero-height: 180px;
+$card-height: calc(100vh - ($hero-height + $haeder-height));
+
+// header
+.haeder {
+  width: 100%;
+  height: $haeder-height;
+  padding: 0px 60px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100%;
+
+  &__logo,
+  &__date-time {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+  }
+
+  &__logo {
+    justify-content: flex-start;
+  }
+
+  &__date-time {
+    justify-content: flex-end;
+    font-size: 24px;
+    color: var(--light1);
+  }
+
+  &__date {
+    width: 100px;
+  }
+
+  &__time {
+    width: 150px;
+    text-align: end;
+  }
+}
+
+// hero
+.hero {
+  width: 100%;
+  height: $hero-height;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(201, 216, 236, 1) 20%,
+    rgba(201, 216, 236, 1) 80%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  padding: 0px 10%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+
+  &--auto-height {
+    $hero-height: 80px;
+    height: $hero-height;
+
+    .hero__tr {
+
+        span {
+          color: #2E70CC;
+        }
+
+        span:last-child {
+            font-size: 10px;
+        }
+      }
+    }
+
+  &__tr {
+    height: 76px;
+    display: grid;
+    grid-template-columns: 100px 1fr 150px 150px 50px;
+
+    & div {
+      display: flex;
+      span:nth-child(1) {
+        font-size: 25px;
+      }
+    }
+
+    img {
+      display: block;
+      height: 100%;
+    }
+
+    span {
+      display: flex;
+      align-items: center;
+      font-size: 22px;
+    }
+  }
+
+  &__tr:last-child {
+    
+    & span {color: #627897}
+    span:nth-child(4) {
+      color: #3F5574;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+  display: block;
+  position: relative;
+
+  &--height560 {
+    height: 560px;
+  }
+
+  &--height400 {
+    height: calc(100vh - ($hero-height + $haeder-height));
+  }
+}
+
+// card
+.card {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  transform: translateX(-50%);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border: 1px solid var(--light1);
+  border-bottom: none;
+  padding: 0px 70px;
+  padding-top: 50px;
+  background: #335079;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  // Table row
+  &__tr {
+  }
+
+  &__tr:first-child {
+    height: 50px;
+    color: var(--light1);
+  }
+
+  &__tr:not(:first-child) {
+    // background: blueviolet;
+    height: 14px;
+    font-size: 35px;
+  }
+
+  &__tr:nth-child(2) {
+    td:first-child {
+      display: flex;
+      column-gap: 20px;
+      align-items: center;
+      color: var(--warning2);
+    }
+  }
+
+  // Table detail
+  &__td {
+    padding: 10px 0px;
+  }
+
+  &__td:first-child {
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+    color: var(--warning1);
+  }
+
+  &__td:nth-child(2),
+  &__td:nth-child(3) {
+  }
+
+  &__td:nth-child(2) {
+    div {
+      background: #fff;
+      border-radius: 5px;
+      border: 2px solid var(--warning2);
+      display: flex;
+      justify-content: space-around;
+      min-width: 300px;
+      height: 60px;
+    }
+  }
+  &__td:nth-child(3) {
+  }
+
+  &__td:not(:first-child) {
+    text-align: center;
+  }
+
+  &__td:last-child {
+    color: var(--light1);
+    font-size: 15px;
+  }
+}

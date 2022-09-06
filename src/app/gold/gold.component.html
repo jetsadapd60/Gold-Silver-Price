@@ -1,0 +1,125 @@
+<div class="wrap">
+  <!-- logo - time -->
+  <ng-container>
+    <div class="haeder">
+      <div class="haeder__logo"><img src="../../../assets/LOGO/brand-logo.png" alt=""></div>
+      <div class="haeder__date-time">
+        <span class="haeder__date">{{ time | date:'dd/MM/y' }} </span>
+        <span class="haeder__time"> {{ time | date: 'hh:mm:ss' }}</span>
+      </div>
+    </div>
+  </ng-container>
+  <!--End logo - time -->
+
+  <!-- HERO -->
+  <ng-container>
+    <div class="hero" *ngIf="!isSilver else silver1">
+      <div class="hero__tr">
+        <img src="../../../assets/LOGO/oz.png" alt="" />
+        <div><span>XAUUSD/</span><span>ออนซ์</span></div>
+          <span *ngIf="gold">{{ gold.bid }}</span>
+          <span *ngIf="gold">{{ gold.ask }}</span>
+          <span>USD</span>
+      </div>
+      <div class="hero__tr">
+        <img src="../../../assets/LOGO/bath.png" alt="" />
+        <div><span>ราคาสมาคม/</span><span>บาท</span></div>
+        <!-- ราคาสมาคม รับซื้อ -->
+        <span *ngIf="gold">{{ gold.bidAs | number }}</span> 
+        <!-- ราคาสมาคม ขายออก -->
+        <span class="hero__color" *ngIf="gold">{{ gold.askAs | number }}</span>
+        <span>บาท</span>
+      </div>
+    </div>
+
+    <!-- TEMPLATE -->
+    <ng-template #silver1>
+      <div class="hero hero--auto-height">
+        <div class="hero__tr">
+          <img src="../../../assets/LOGO/oz.png" alt="" />
+          <span>Silver USD/ออนซ์</span>
+          <span>{{ silver?.bid }}</span>
+          <span>{{ silver?.ask }}</span>
+          <span>USD</span>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+  <!-- END HERO -->
+
+  <!-- Card -->
+  <ng-container>
+    <div class="container container--height400"  *ngIf="!isSilver else silver2">
+      <div sizeEl class="card" routerLink="{{ path }}">
+        <table class="table">
+          <tr class="table__tr">
+            <th></th>
+            <th>ราคารับซื้อ</th>
+            <th>ราคาขายออก</th>
+          </tr>
+          <tr class="table__tr">
+            <td class="table__td">
+              <img src="../../../assets/LOGO/gold99.png" alt="">
+              <span>GOLD 99.99%/บาท</span>
+            </td>
+            <td colspan="2" class="table__td">
+              <div *ngIf="!gold"><span>0</span> <span>0</span></div>
+              <div *ngIf="gold"><span>{{ gold.bidKg | number }}</span> <span>{{ gold.bidBg | number }}</span></div>
+            </td>
+            <td></td>
+            <td class="table__td">บาท</td>
+          </tr>
+          <tr class="table__tr">
+            <td class="table__td">
+              <img src="../../../assets/LOGO/gold96.png" alt="">
+              <span>GOLD 96.50%/บาท</span>
+            </td>
+            <td colspan="2" class="table__td">
+              <div *ngIf="!gold"><span>0</span> <span>0</span></div>
+              <div *ngIf="gold"><span>{{ gold.askKg | number }}</span> <span>{{ gold.askBg | number }}</span></div>
+            </td>
+            <td></td>
+            <td class="table__td">บาท</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <ng-template #silver2>
+      <div class="container container--height560">
+        <div sizeEl class="card" routerLink="{{ path }}">
+          <table class="table">
+            <tr class="table__tr">
+              <th></th>
+              <th>ราคารับซื้อ</th>
+              <th>ราคาขายออก</th>
+            </tr>
+            <tr class="table__tr">
+              <td class="table__td">
+                <img src="../../assets/LOGO/silver99k.png" alt="">
+                <span style="color: #fff;">Silver 99.99%/กิโลกรัม</span>
+              </td>
+              <td colspan="2" class="table__td">
+                <div><span style="color:#508FE8">{{ silver?.bidKg| number }}</span> <span style="color: #2D71CC;">{{ silver?.askKg | number }}</span></div>
+              </td>
+              <td></td>
+              <td class="table__td">บาท</td>
+            </tr>
+            <tr class="table__tr">
+              <td class="table__td">
+                <img src="../../assets/LOGO/silver99b.png" alt="">
+                <span style="color: #BBBBBB;">Silver 99.99/บาท</span>
+              </td>
+              <td colspan="2" class="table__td">
+                <div><span style="color:#508FE8">{{ silver?.bidBg | number }}</span> <span style="color: #2D71CC;">{{ silver?.askBg | number }}</span></div>
+              </td>
+              <td></td>
+              <td class="table__td">บาท</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>
+
